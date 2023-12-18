@@ -2,6 +2,7 @@
 #include  "atlstr.h"  //CString
 #include  <math.h>
 #include  <time.h>
+#include <random>
 
 #include <windows.h>
 
@@ -12,6 +13,8 @@ namespace  MyMath
 	//sets random seed
 	int  iRandomize();
 
+	//returns a random int from min to max (including min and max)
+	int rangeRand(int min, int max);
 
 	//returns number from 0 to RAND_MAX
 	int     iRand();

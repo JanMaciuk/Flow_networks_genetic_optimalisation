@@ -7,7 +7,7 @@
 using namespace std;
 
 COptimizer::COptimizer(CLFLnetEvaluator &cEvaluator)
-	: c_evaluator(cEvaluator)
+	: c_evaluator(cEvaluator), c_genetic_algorithm(GA_populationSize, GA_crossProb, GA_mutProb, &c_evaluator)
 {
 	random_device c_seed_generator;
 	c_rand_engine.seed(c_seed_generator());
@@ -24,7 +24,8 @@ void COptimizer::vInitialize()
 void COptimizer::vRunIteration()
 {
 	vector<int> v_candidate;
-	v_fill_randomly(v_candidate);	// TODO: replace with a genetic algorithm call
+	//v_fill_randomly(v_candidate);	// TODO: replace with a genetic algorithm call
+	v_candidate = c_genetic_algorithm.runOneIteration().getGenotype();
 
 	double d_candidate_fitness = c_evaluator.dEvaluate(&v_candidate);
 

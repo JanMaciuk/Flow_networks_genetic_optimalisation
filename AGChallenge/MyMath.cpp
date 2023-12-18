@@ -16,6 +16,14 @@ int  MyMath::iRandomize()
 
 
 
+//returns a random int from min to max (including min and max)
+int MyMath::rangeRand(int min, int max)
+{
+	std::random_device					rand_dev;
+	std::mt19937						generator(rand_dev());
+	std::uniform_int_distribution<int>  distr(min, max);
+	return distr(generator);
+}
 
 
 //returns number from 0 to RAND_MAX
@@ -23,7 +31,6 @@ int  MyMath::iRand()
 {
 	return(rand());
 }//int  iRand()
-
 
 
 

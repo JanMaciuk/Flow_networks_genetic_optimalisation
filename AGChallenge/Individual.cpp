@@ -1,0 +1,47 @@
+#include "Individual.h"
+
+
+Individual::Individual(vector<int> genotype, CLFLnetEvaluator* evaluatorPointer)
+{
+	this->genotype = genotype;
+	this->evaluatorPointer = evaluatorPointer;
+	fitness = NULL; // Fitness is calculated only when needed, it will always be needed, but these are the requirements
+}
+
+double Individual::getFitness()
+{
+	if (fitness == NULL) { fitness = evaluatorPointer->dEvaluate(&genotype); }
+	return fitness;
+}
+
+void Individual::mutate(float mutProb)
+{
+	for (int i = 0; i < genotype.size(); i++) // For each gene roll if mutation should happen or not
+	{
+		if (dRand() < mutProb) 
+		{
+			genotype.at(i) = lRand(evaluatorPointer->iGetNumberOfValues(i));
+		}
+	}
+}
+
+vector<Individual> Individual::cross(Individual& other)
+{
+	// randomize crossover point:
+	int crossIndex = rangeRand(1, genotype.size() - 1);
+	vector<int> genotype1, genotype2;
+	for (int i = 0; i < genotype.size(); i++)
+	{
+		if (i < crossIndex)
+		{
+			genotype1.push_back(genotype.at(i));
+			genotype2.push_back(other.genotype.at(i));
+		}
+		else
+		{
+			genotype1.push_back(other.genotype.at(i));
+			genotype2.push_back(genotype.at(i));
+		}
+	}
+	return vector<Individual> {Individual(genotype1, evaluatorPointer), Individual(genotype2, evaluatorPointer)};
+}

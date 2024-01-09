@@ -7,9 +7,9 @@
 
 using namespace std;
 
-const int GA_populationSize = 100;
-const float GA_crossProb = 0.8;
-const float GA_mutProb = 0.01;
+const int GA_populationSize = 150;
+const float GA_crossProb = 0.9;
+const float GA_mutProb = 0.001;
 
 class COptimizer
 {

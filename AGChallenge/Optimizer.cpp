@@ -25,7 +25,7 @@ void COptimizer::vRunIteration()
 {
 	vector<int> v_candidate;
 	//v_fill_randomly(v_candidate);	// Replaced with a genetic algorithm call
-	v_candidate = c_genetic_algorithm.runOneIteration().getGenotype();
+	v_candidate = c_genetic_algorithm.runOneIteration()->getGenotype();
 
 	double d_candidate_fitness = c_evaluator.dEvaluate(&v_candidate);
 

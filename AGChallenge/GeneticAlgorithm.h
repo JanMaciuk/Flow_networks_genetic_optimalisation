@@ -10,10 +10,10 @@ public:
 
 	GeneticAlgorithm(int populationSize, float crossProb, float mutProb, CLFLnetEvaluator* evaluatorPointer);
 
-	Individual runOneIteration(); // run one generation and return the best individual
+	Individual* runOneIteration(); // run one generation and return the best individual
 
 private:
-	vector<Individual> population;
+	vector<Individual*> population;
 	float crossProb;
 	float mutProb;
 	CLFLnetEvaluator* evaluatorPointer;

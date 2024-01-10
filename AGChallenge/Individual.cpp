@@ -3,9 +3,9 @@
 
 Individual::Individual(vector<int> genotype, CLFLnetEvaluator* evaluatorPointer)
 {
-	this->genotype = genotype;
-	this->evaluatorPointer = evaluatorPointer;
-	fitness = NULL; // Fitness is calculated only when needed, it will always be needed, but these are the requirements
+	this->genotype = genotype;					// The actual solution carried by the individual
+	this->evaluatorPointer = evaluatorPointer;	// Pointer to the evaluator instance that will be used for fitness calculation
+	fitness = NULL;								// Fitness is calculated only when needed
 }
 
 Individual::Individual(const Individual& other)

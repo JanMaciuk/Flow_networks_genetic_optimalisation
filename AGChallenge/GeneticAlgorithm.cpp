@@ -8,12 +8,7 @@ GeneticAlgorithm::GeneticAlgorithm(int populationSize, float crossProb, float mu
 
 	for (int i = 0; i < populationSize; i++)
 	{
-		vector<int> genotype;	// Filling the initial population with random individuals
-		for (int j = 0; j < evaluatorPointer->iGetNumberOfBits(); j++)
-		{
-			genotype.push_back(lRand(evaluatorPointer->iGetNumberOfValues(j)));
-		}
-		population.push_back(new Individual(genotype,evaluatorPointer));
+		population.push_back(new Individual(evaluatorPointer));
 	}
 }
 

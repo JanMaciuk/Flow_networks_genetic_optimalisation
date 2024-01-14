@@ -9,6 +9,7 @@ class Individual
 public:
 
 	Individual(vector<int> genotype, CLFLnetEvaluator* evaluatorPointer);
+	Individual( CLFLnetEvaluator* evaluatorPointer);
 	Individual(const Individual& other);
 	double getFitness();
 	void mutate(float mutProb);

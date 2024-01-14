@@ -8,6 +8,18 @@ Individual::Individual(vector<int> genotype, CLFLnetEvaluator* evaluatorPointer)
 	fitness = NULL;								// Fitness is calculated only when needed
 }
 
+Individual::Individual(CLFLnetEvaluator* evaluatorPointer)	// A random gene will be generated if its not specified in the constructor
+{
+	this->genotype = vector<int>();				// The actual solution carried by the individual
+	this->evaluatorPointer = evaluatorPointer;	// Pointer to the evaluator instance that will be used for fitness calculation
+	fitness = NULL;								// Fitness is calculated only when needed
+	//Generate a random gene:
+	for (int j = 0; j < evaluatorPointer->iGetNumberOfBits(); j++)
+	{
+		this->genotype.push_back(lRand(evaluatorPointer->iGetNumberOfValues(j)));
+	}
+}
+
 Individual::Individual(const Individual& other)
 {
 	genotype = other.genotype;

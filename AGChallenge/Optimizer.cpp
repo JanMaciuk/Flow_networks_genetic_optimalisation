@@ -49,3 +49,8 @@ void COptimizer::v_fill_randomly(vector<int> &vSolution)
 		vSolution.at(ii) = lRand(c_evaluator.iGetNumberOfValues(ii));
 	}//for (size_t i = 0; i < vSolution.size(); i++)
 }//void COptimizer::v_fill_randomly(const vector<int> &vSolution)
+
+COptimizer::~COptimizer()
+{
+	c_genetic_algorithm.~GeneticAlgorithm();
+}//COptimizer::~COptimizer()

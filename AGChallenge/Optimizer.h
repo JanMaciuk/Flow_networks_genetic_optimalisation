@@ -20,6 +20,7 @@ public:
 	void vRunIteration();
 
 	vector<int> *pvGetCurrentBest() { return &v_current_best; }
+	~COptimizer();
 
 private:
 	void v_fill_randomly(vector<int> &vSolution);

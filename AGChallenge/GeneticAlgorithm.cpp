@@ -61,3 +61,11 @@ Individual* GeneticAlgorithm::runOneIteration()
 	}
 	return bestIndividual;
 }
+
+GeneticAlgorithm::~GeneticAlgorithm()
+{
+	for (int i = 0; i < population.size(); i++)
+	{
+		delete population.at(i);
+	}
+}

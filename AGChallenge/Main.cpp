@@ -36,6 +36,7 @@ void vRunExperiment(CLFLnetEvaluator &cConfiguredEvaluator)
 
 			c_time_counter.bGetTimePassed(&d_time_passed);
 		}//while (d_time_passed <= MAX_TIME)
+		c_optimizer.~COptimizer();
 	}//try
 	catch (exception &c_exception)
 	{

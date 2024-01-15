@@ -12,6 +12,8 @@ public:
 
 	Individual* runOneIteration(); // run one generation and return the best individual
 
+	~GeneticAlgorithm();
+
 private:
 	vector<Individual*> population;
 	float crossProb;
